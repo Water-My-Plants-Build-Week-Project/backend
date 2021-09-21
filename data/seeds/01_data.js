@@ -47,7 +47,7 @@ exports.seed = async function (knex) {
       scientific_name: 'Paeonia',
       h2oFrequency: 'every 10 to 14 days',
       img: '',
-      user_id: 3
+      user_id: 1
     }
   ])
 }
