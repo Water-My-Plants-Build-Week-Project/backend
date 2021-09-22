@@ -8,7 +8,7 @@ const { restricted } = require('./middleware.js')
 // ENDPOINTS
 
 //GET
-router.get('/', (req,res,next) =>{ // provides an array of all the users and their phone numbers
+router.get('/',restricted, (req,res,next) =>{ // provides an array of all the users and their phone numbers
     Users.find()
         .then(users =>{
             console.log(users)

@@ -4,6 +4,7 @@ const cors = require("cors");
 const session = require('express-session')
 const KnexSessionStore = require('connect-session-knex')(session)
 const userRouter = require('./users/router.js')
+const plantRouter = require('./plants/router.js')
 
 const server = express();
 
@@ -34,6 +35,7 @@ server.use(cors());
 server.use(session(config))
 
 server.use('/api/users', userRouter)
+server.use('/api/plants', plantRouter)
 
 server.get("/", (req, res) => {
     res.json({ api: "up" });
