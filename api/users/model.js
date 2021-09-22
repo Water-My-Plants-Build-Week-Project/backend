@@ -2,8 +2,7 @@ const db = require('../../data/db-config.js')
 
 function find() { //this is for the user get endpoint only accessible with sessions (all users are displayed)
     return db('users as u')
-        .join('plants as p', 'u.user_id', 'p.user_id')
-        .select('u.username', 'p.nickname', 'p.species')
+        .select('u.user_id','u.username', 'u.phone_number')
         .orderBy('u.username')
 }
 
@@ -20,10 +19,14 @@ async function add(user) { // user register post endpoint
     return findById(userID)
 }
 
-function update(id, user) { // updates user object put endpoint
+function update(user_id, user) { // updates user object put endpoint
     return db('users')
-      .where('id', Number(id))
+      .where('user_id', Number(user_id))
       .update(user);
+
+    // return db('users')
+    // .where({ user_id })
+    // .update(user)
 }
 
 module.exports = { add, find, findBy, findById, update };
