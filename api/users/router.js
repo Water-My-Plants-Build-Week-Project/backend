@@ -7,7 +7,7 @@ const { restricted } = require('./middleware.js')
 
 // ENDPOINTS
 
-//GET
+//GET /api/users
 router.get('/',restricted, (req,res,next) =>{ // provides an array of all the users and their phone numbers
     Users.find()
         .then(users =>{
@@ -32,7 +32,7 @@ router.get('/logout', (req,res)=>{
   }
 })
 
-//POST
+//POST /api/users
 router.post('/register', async (req,res) =>{
     try{
         const hash = bcrypt.hashSync(req.body.password,10)
@@ -61,7 +61,7 @@ router.post('/login', async (req,res)=>{
       }
   })
 
-  // PUT
+  // PUT /api/users/user_id
   router.put('/:user_id', async (req,res) =>{
       const user = req.body
       const {user_id} = req.params
