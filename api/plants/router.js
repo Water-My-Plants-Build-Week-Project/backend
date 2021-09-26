@@ -3,7 +3,7 @@ const router = express.Router()
 const Plants = require('./model.js')
 
 
-// ENDPOINTS
+// ENDPOINTS test
 
 //GET /api/plants/:username
 router.get('/:username', (req,res,next)=>{
